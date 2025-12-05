@@ -30,7 +30,7 @@ function custom_modify_product_data($release) {
  * 
  * Automatically set prices for imported products
  */
-add_action('vsd_after_product_created', 'custom_set_product_price', 10, 2);
+add_action('vsd_after_product_created', 'custom_set_product_price', 10);
 function custom_set_product_price($product_id, $release) {
     $product = wc_get_product($product_id);
     
@@ -60,7 +60,7 @@ function custom_set_product_price($product_id, $release) {
  * 
  * Store additional custom data with products
  */
-add_action('vsd_after_product_created', 'custom_add_meta_fields', 10, 2);
+add_action('vsd_after_product_created', 'custom_add_meta_fields', 10);
 function custom_add_meta_fields($product_id, $release) {
     // Add Discogs URL
     if (isset($release['id'])) {
@@ -77,7 +77,7 @@ function custom_add_meta_fields($product_id, $release) {
 /**
  * Example 4: Send email notification when product is added
  */
-add_action('vsd_after_product_created', 'custom_notify_on_import', 10, 2);
+add_action('vsd_after_product_created', 'custom_notify_on_import', 10);
 function custom_notify_on_import($product_id, $release) {
     $product = wc_get_product($product_id);
     
@@ -119,7 +119,7 @@ function custom_auto_publish_genres($status, $release) {
 /**
  * Example 6: Add custom product tags based on style
  */
-add_action('vsd_after_product_created', 'custom_add_style_tags', 10, 2);
+add_action('vsd_after_product_created', 'custom_add_style_tags', 10);
 function custom_add_style_tags($product_id, $release) {
     if (isset($release['styles']) && is_array($release['styles'])) {
         wp_set_object_terms($product_id, $release['styles'], 'product_tag');
@@ -129,7 +129,7 @@ function custom_add_style_tags($product_id, $release) {
 /**
  * Example 7: Set stock quantity for all imports
  */
-add_action('vsd_after_product_created', 'custom_set_stock', 10, 2);
+add_action('vsd_after_product_created', 'custom_set_stock', 10);
 function custom_set_stock($product_id, $release) {
     $product = wc_get_product($product_id);
     
