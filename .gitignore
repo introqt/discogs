@@ -33,6 +33,7 @@ yarn.lock
 # Composer
 /vendor/
 composer.lock
+composer.phar
 
 # OS
 .DS_Store

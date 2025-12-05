@@ -1,0 +1,17 @@
+{
+    "name": "vinyl-shop/discogs-plugin",
+    "description": "WordPress plugin for importing vinyl records from Discogs",
+    "type": "wordpress-plugin",
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "php-stubs/wordpress-stubs": "^6.4",
+        "php-stubs/woocommerce-stubs": "^8.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
