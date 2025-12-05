@@ -179,9 +179,16 @@ class VSD_Service_Discogs_API {
             return new WP_Error('no_image', __('No image URL provided.', 'vinyl-shop-discogs'));
         }
         
-        require_once(ABSPATH . 'wp-admin/includes/media.php');
-        require_once(ABSPATH . 'wp-admin/includes/file.php');
-        require_once(ABSPATH . 'wp-admin/includes/image.php');
+        // Load WordPress media functions if not already loaded
+        if (!function_exists('media_handle_sideload')) {
+            require_once(ABSPATH . 'wp-admin/includes/media.php');
+        }
+        if (!function_exists('download_url')) {
+            require_once(ABSPATH . 'wp-admin/includes/file.php');
+        }
+        if (!function_exists('wp_read_image_metadata')) {
+            require_once(ABSPATH . 'wp-admin/includes/image.php');
+        }
         
         $tmp = download_url($image_url);
         

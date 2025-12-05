@@ -251,9 +251,11 @@ class VSD_Model_Product {
      * @return array|null
      */
     private function get_or_create_category($name, $parent_id = 0) {
+        // term_exists returns array|null for WP 6.0+, or int|0 for older versions
+        // @phpstan-ignore-next-line
         $term = term_exists($name, 'product_cat', $parent_id);
         
-        if (!$term) {
+        if (!$term || $term === 0) {
             $term = wp_insert_term($name, 'product_cat', array(
                 'parent' => $parent_id
             ));
@@ -261,6 +263,14 @@ class VSD_Model_Product {
             if (is_wp_error($term)) {
                 return null;
             }
+        }
+        
+        // Ensure we have an array with term_id
+        if (is_array($term) && isset($term['term_id'])) {
+            return $term;
+        } elseif (is_numeric($term)) {
+            // For older WP versions that return term_id as int
+            return array('term_id' => (int)$term);
         }
         
         return $term;

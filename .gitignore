@@ -35,6 +35,9 @@ yarn.lock
 composer.lock
 composer.phar
 
+# IDE Helper (keep in repo for other developers)
+# .ide-helper.php
+
 # OS
 .DS_Store
 .DS_Store?

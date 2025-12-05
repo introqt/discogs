@@ -3,7 +3,8 @@
 ## Step 1: Install the Plugin
 
 1. Copy the entire `vinyl-shop-discogs` folder to your WordPress installation:
-   ```
+
+   ```text
    /wp-content/plugins/vinyl-shop-discogs/
    ```
 

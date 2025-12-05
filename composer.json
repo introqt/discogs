@@ -9,6 +9,11 @@
         "php-stubs/wordpress-stubs": "^6.4",
         "php-stubs/woocommerce-stubs": "^8.0"
     },
+    "autoload-dev": {
+        "files": [
+            ".ide-helper.php"
+        ]
+    },
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
